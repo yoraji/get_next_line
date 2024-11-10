@@ -45,7 +45,7 @@ char	*update_buffer(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	if (*(pos + 1)== '\0') // ??
+	if (*(pos + 1) == '\0')
 	{
 		free(buffer);
 		return (NULL);
@@ -75,7 +75,6 @@ char	*process_read(int fd, char **ptr, char *tmp)
 	ssize_t	bytes_read;
 
 	bytes_read = 1;
-
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, tmp, BUFFER_SIZE);
@@ -118,7 +117,7 @@ char	*get_next_line(int fd)
 	}
 	line = process_read(fd, &ptr, tmp);
 	free(tmp);
-	return(line);
+	return (line);
 }
 
 // int	main()

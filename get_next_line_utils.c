@@ -65,26 +65,21 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	len1;
 	size_t	len2;
 	char	*result;
-	size_t	i, j;
+	size_t	j;
 
-	i = 0;
-	len1 = (s1) ? ft_strlen(s1) : 0;
+	if (!s1)
+		len1 = 0;
+	else
+		len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	result = (char *)malloc(len1 + len2 + 1);
-	i = 0, j = 0;
+	j = 0;
 	if (!result)
 		return (NULL);
-	while (i < len1)
-	{
-		result[i] = s1[i];
-		i++;
-	}
-	while (j < len2)
-	{
-		result[i + j] = s2[j];
-		j++;
-	}
-	result[i + j] = '\0';
+	ft_strncpy(result, s1, len1);
+	while ((j++) < len2)
+		result[len1 + j] = s2[j];
+	result[len1 + j] = '\0';
 	if (s1)
 		free(s1);
 	return (result);
